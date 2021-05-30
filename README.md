@@ -14,7 +14,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 dataframe = pd.read_csv('https://raw.githubusercontent.com/Libazisa/The-Zig-Coding-Interview-DataScience/master/account-defaults.csv')
-dataframe.head(n=5)
 ```
 When filling the dataframe in Python, we can either fill the N/A entries with 0s or drop those features entirely. Later on, we will see how this affects the performance of the algorithms the data will be subjected to. 
 
