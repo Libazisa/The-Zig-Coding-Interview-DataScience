@@ -40,8 +40,7 @@ From the image displayed above, we see that the darker the hue, the more correla
 
 # Task 3: Build one or more predictive model(s) on the accounts data using regression techniques
 I will present two alternatives for the prediction task. Logistic regression and the random forest classifier. First we seperate the dataset into the independent and dependent variables as well as segmenting a test set from the dataset given. 
-```
-Python
+```Python
 x = dataframe.iloc[:,1:9].values
 y = dataframe.iloc[:,0].values
 from sklearn.model_selection import train_test_split
@@ -50,15 +49,13 @@ x_train, x_test, y_train, y_test = train_test_split(x,y,test_size=0.20)
 Next we preprocess the data to assist quick convergence of the logistic regression and random forest algorithms.
 
 Next, we can build the logistic regression model.
-```
-Python
+```Python
 from sklearn.linear_model import LogisticRegression
 model_1 = LogisticRegression(solver='saga', max_iter=1000, random_state=42)
 model_1.fit(x_train,y_train)
 ```
 We can also implement the random forest algorithm on the same data by doing the following
-```
-Python
+```Python
 from sklearn.ensemble import RandomForestClassifier
 model_2 = RandomForestClassifier()
 model_2.fit(x_train,y_train)
@@ -68,8 +65,7 @@ As can already be seen from the pearson correlation heatmap displayed above, the
 ## Identify and explain issues with the model(s) such as collinearity, etc.
 ## Calculate predictions and show model performance on out-of-sample data.
 We can perform tests on both models using the test set. this can be seen by the following
-```
-Python
+```Python
 from sklearn.metrics import classification_report
 y_pred_1 = model_1.predict(x_test)
 print('Performance of The Logistic Regression Model')
@@ -78,8 +74,10 @@ y_pred_2 = model_2.predict(x_test)
 print('Performance of the Random Forest Model')
 print(classification_report(y_test,y_pred_2))
 ```
-![Screenshot (33)](https://user-images.githubusercontent.com/34988914/120311147-7284e000-c2d7-11eb-8052-9439bf4af9f0.png)
-The 
+![Tests](https://user-images.githubusercontent.com/34988914/120312573-2fc40780-c2d9-11eb-9c54-252576fa768b.png)
+We can also test the model with the features dropped instead of zeroed. 
+From here we can see effect that zeroing or dropping features has on the model.
+The macro average is the usual average we’re used to seeing. Just add them all up and divide by how many there were. Weighted average considers how many of each class there were in its calculation, so fewer of one class means that it’s precision/recall/F1 score has less of an impact on the weighted average for each of those things.
 ## Summarize out-of-sample data in tiers from highest-risk to lowest-risk.
 
 
