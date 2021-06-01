@@ -74,7 +74,9 @@ y_pred_2 = model_2.predict(x_test)
 print('Performance of the Random Forest Model')
 print(classification_report(y_test,y_pred_2))
 ```
+
 ![Tests](https://user-images.githubusercontent.com/34988914/120312573-2fc40780-c2d9-11eb-9c54-252576fa768b.png)
+
 We can also test the model with the features dropped instead of zeroed. 
 From here we can see effect that zeroing or dropping features has on the model.
 The macro average is the usual average we’re used to seeing. Just add them all up and divide by how many there were. Weighted average considers how many of each class there were in its calculation, so fewer of one class means that it’s precision/recall/F1 score has less of an impact on the weighted average for each of those things.
